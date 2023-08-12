@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./App.css">
+</head>
+<body>
+
+    <div id="root" >
+          <h2 id="title">Not Rendered</h2>
+    </div>
+    <hr>
+    <div id="root1">
+        <h2>Not Render</h2>
+    </div>
+
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Namaste Everyone from Javascript !";
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+    </script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <!-- <script>
+        const heading1 = React.createElement(
+            "h1",
+            {
+               class:"heading1" 
+            },
+            "Heading-1"
+        );
+        const heading2 = React.createElement(
+            "h1",
+            {
+              class :"heading2"
+            },
+            "Heading-2"
+        );
+
+        const container = React.createElement(
+            "div",
+            {
+                id:"container",   
+            },
+            [heading1,heading2]
+        )
+         
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(container);
+    </script> -->
+    <script type="module" src="./App.js"></script>
+    <!-- <script>
+        const name1 = React.createElement("h1",{},"Rajneesh 🫡");
+        const name2 = React.createElement("h1",{},"Ritik 🫡");
+        const container = React.createElement("div",{},[name1,name2]);
+        const r1 = ReactDOM.createRoot(document.getElementById("root1"));
+        r1.render(container);
+    </script> -->
+</body>
+</html>
