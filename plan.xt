@@ -1,0 +1,14 @@
+HeaderComponent
+  ->Logo(Title)
+  ->Nav Items(Right Side)
+  ->Cart
+  
+BodyComponent
+  ->Search Bar
+  ->Resturant List
+    ->Resturant Card (many cards)
+       -Image 
+       -Name
+       -Rating   
+
+FooterComponent
