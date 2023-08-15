@@ -48,11 +48,14 @@ body {
 }
 
 .card {
-  border: 1px solid #000;
+  border: 1px solid gray;
   border-radius: .3rem;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 250px;
   margin: .8rem 1rem;
   padding: .3rem;
+  display: flex;
   font-family: sans-serif !important;
 }
 
@@ -62,13 +65,35 @@ body {
   background-size: cover;
   border-radius: .3rem;
   width: 100%;
-  height: 50%;
+  height: 45%;
 }
 
 .resturant-list {
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
+}
+
+.head-button {
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.head-button:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #6753ec;
+}
+
+.dark {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+
+.light {
+  background-color: #fff;
+  color: #000 !important;
 }
 
 /*# sourceMappingURL=index.34b7aba5.css.map */

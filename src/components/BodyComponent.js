@@ -1,6 +1,6 @@
 import { resturantList } from "../constants";
 import ResturantCardComponent from "./ResturantCardComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -15,10 +15,27 @@ const BodyComponent = () => {
     const[searchInput, setSearchInput] = useState();
 
     //using to show data in body
-    const [resturant, setResturant] = useState(resturantList)
+    const [resturant, setResturant] = useState();
 
     //search Clicked
     const [searchClicked, setSearchClicked] = useState("false"); 
+
+    //api call
+    useEffect(()=>{
+        console.log("use effect render - body component");
+        getResturants();
+    },[])
+
+    //
+    async function getResturants(){
+        const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.4871462&lng=73.8200227&page_type=DESKTOP_WEB_LISTING");
+         const json = await data.json();
+        //  console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+         const myrestu = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+         console.log(myrestu);
+         setResturant(myrestu);
+    }
+
     console.log("Body Componenent");
     return (
         <> 
@@ -39,7 +56,7 @@ const BodyComponent = () => {
             
             {/* //resturant list */}
             <div className="resturant-list">
-                {resturant.map((resturant, index) => {
+                {resturant?.map((resturant, index) => {
                     return (
                         <ResturantCardComponent {...resturant.info} key={resturant.info.id}/>
                     );
