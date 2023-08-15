@@ -10,14 +10,10 @@ const loggedInUser = ()=>{
 
 //Header Component
 const HeaderComponent = ()=>{
-<<<<<<< Updated upstream
-    console.log("Heaer Component");
-=======
     console.log("Header Component");
 
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
->>>>>>> Stashed changes
     return(
         <div className="header">
             <Title/>
@@ -27,8 +23,6 @@ const HeaderComponent = ()=>{
                       <li>About</li>
                       <li>Contact</li>
                       <li>Cart</li>
-<<<<<<< Updated upstream
-=======
                       <li>{isLoggedIn}</li>
                       {
                         isLoggedIn ?
@@ -36,7 +30,6 @@ const HeaderComponent = ()=>{
                         :
                         (<button onClick={()=> setIsLoggedIn(true)}>LOGIN ⬅️</button>)
                       }
->>>>>>> Stashed changes
                   </ul>
             </div>
         </div>
