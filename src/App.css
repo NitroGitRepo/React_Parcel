@@ -30,6 +30,7 @@ body{
     border: 2px solid red;
     justify-content: space-between;
     padding: 0px;
+    align-items: center;
 }
 .header .nav-items ul li{
     padding:  0px 0.5rem;
@@ -67,4 +68,33 @@ body{
     flex-wrap: wrap;
     /* margin-right: 10px; */
     justify-content: center;
+<<<<<<< Updated upstream
+=======
+}
+.head-button{
+    outline: none;
+    border: none;
+    border-radius: 0px;
+}
+.head-button:hover{
+   background-color: rgb(103, 83, 236);
+   color: white;
+   cursor: pointer;
+}
+.dark{
+    color: white !important;
+    background-color: black !important;
+}
+.light{
+    color: black !important;
+    background-color: white;
+}
+.shimmer-card{
+    display: flex;
+    flex-direction: column;
+}
+.shimmer-card .shimmer-cards{
+    border: 2px solid grey;
+    border-radius: 2px;
+>>>>>>> Stashed changes
 }
