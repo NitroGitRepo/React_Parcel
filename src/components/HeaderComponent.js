@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 //Title Component
 export const Title = ()=>(
     <img className="logo" alt="not loaded" src="https://res.cloudinary.com/admitad-gmbh/image/upload/v1654530482/b45f8vpzym2hqa73opxa.png"/>
@@ -10,10 +11,13 @@ const loggedInUser = ()=>{
 
 //Header Component
 const HeaderComponent = ()=>{
-    console.log("Header Component");
-
+    console.log("Render - Header Component");
+    
     const [isLoggedIn, setIsLoggedIn] = useState(true);
-
+    
+    useEffect(()=>{
+        console.log("USE EFFECT - Header Component");
+    })
     return(
         <div className="header">
             <Title/>

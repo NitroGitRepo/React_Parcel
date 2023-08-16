@@ -68,8 +68,6 @@ body{
     flex-wrap: wrap;
     /* margin-right: 10px; */
     justify-content: center;
-<<<<<<< Updated upstream
-=======
 }
 .head-button{
     outline: none;
@@ -91,10 +89,14 @@ body{
 }
 .shimmer-card{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    
 }
 .shimmer-card .shimmer-cards{
-    border: 2px solid grey;
-    border-radius: 2px;
->>>>>>> Stashed changes
+    /* border: 2px solid grey; */
+    border-radius: 3px;
+    margin: 0.8rem 1rem;
+    background-color: lightgray;
+    width: 250px;
+    height: 400px;
 }

@@ -1,12 +1,9 @@
 import { resturantList } from "../constants";
 import ResturantCardComponent from "./ResturantCardComponent";
-<<<<<<< Updated upstream
 import { useState } from "react";
 
-=======
 import { useEffect, useState } from "react";
 import Shimmer from "./ShimerComponent";
->>>>>>> Stashed changes
 
 
 const BodyComponent = () => {
@@ -23,20 +20,18 @@ const BodyComponent = () => {
     const[allresturants, setAllResturants] = useState([])
 
     //using to show data in body
-<<<<<<< Updated upstream
     const [resturant, setResturant] = useState(resturantList)
 
     //search Clicked
-    const [searchClicked, setSearchClicked] = useState("false"); 
-=======
+    
     const [filteredresturant, setFilteredResturant] = useState([]);
 
     //search Clicked
-    const [searchClicked, setSearchClicked] = useState("false"); 
+    
 
     //api call
     useEffect(()=>{
-        console.log("use effect render - body component");
+        console.log("USE EFFECT - Body Component");
         getResturants();
     },[])
 
@@ -51,8 +46,7 @@ const BodyComponent = () => {
          setAllResturants(myrestu);
     }
 
->>>>>>> Stashed changes
-    console.log("Body Componenent");
+    console.log("Render - Body Componenent");
 
     //conditional rendering
     //if resturant is empty => shimmer Ui
@@ -61,7 +55,7 @@ const BodyComponent = () => {
     //not render component (Early return)
     // if(allresturants.length === 0) return null;
 
-    return (allresturants.length === 0) ? <Shimmer/> : 
+    return (allresturants?.length === 0) ? <Shimmer/> : 
     (
         <> 
             {/* search bar */}
@@ -81,12 +75,8 @@ const BodyComponent = () => {
             
             {/* //resturant list */}
             <div className="resturant-list">
-<<<<<<< Updated upstream
-                {resturant.map((resturant, index) => {
-=======
-                {filteredresturant.length === 0 ? <h2>No Match Found With : {searchInput}</h2> :
+                {filteredresturant?.length === 0 ? <h2>No Match Found With : {searchInput}</h2> :
                     filteredresturant?.map((resturant, index) => {
->>>>>>> Stashed changes
                     return (
                         <ResturantCardComponent {...resturant.info} key={resturant.info.id}/>
                     );

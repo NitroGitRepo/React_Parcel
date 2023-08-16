@@ -72,8 +72,6 @@ body {
   display: flex;
 }
 
-<<<<<<< Updated upstream
-=======
 .head-button {
   border: none;
   border-radius: 0;
@@ -97,14 +95,16 @@ body {
 }
 
 .shimmer-card {
-  flex-direction: column;
+  flex-wrap: wrap;
   display: flex;
 }
 
 .shimmer-card .shimmer-cards {
-  border: 2px solid gray;
-  border-radius: 2px;
+  background-color: #d3d3d3;
+  border-radius: 3px;
+  width: 250px;
+  height: 400px;
+  margin: .8rem 1rem;
 }
 
->>>>>>> Stashed changes
 /*# sourceMappingURL=index.34b7aba5.css.map */
