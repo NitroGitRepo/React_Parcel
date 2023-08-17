@@ -24,6 +24,10 @@ body{
     justify-content: space-around;
     border: 1px solid green;
 }
+.bike-logo{
+    width: 40px;
+    height: 30px;
+}
 .header .nav-items ul{
     list-style: none;
     display: flex;
@@ -88,4 +92,16 @@ body{
 .light{
     color: black !important;
     background-color: white;
+}
+
+.shimmer-card{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-cards{
+    width: 250px;
+    margin: 0.8rem 1rem;
+    height: 250px;
+    background-color: grey;
+    border-radius: 0.5rem;
 }

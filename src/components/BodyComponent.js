@@ -1,28 +1,37 @@
 import { resturantList } from "../constants";
 import ResturantCardComponent from "./ResturantCardComponent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+import { useEffect, useState } from "react";
+import Shimmer from "./ShimerComponent";
 
 
 const BodyComponent = () => {
 
     //filter data function
-    function filterData(searchInput, resturantList){
-         return resturantList.filter((res,inde)=> res.info.name.includes(searchInput));
+    function filterData(searchInput, allresturants){
+         return allresturants.filter((res,inde)=> res?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase()));
     }
 
     //search Text it is local variabl
     const[searchInput, setSearchInput] = useState();
 
+    //all resturant original
+    const[allresturants, setAllResturants] = useState([])
+
     //using to show data in body
-    const [resturant, setResturant] = useState();
+    const [resturant, setResturant] = useState(resturantList)
 
     //search Clicked
-    const [searchClicked, setSearchClicked] = useState("false"); 
+    
+    const [filteredresturant, setFilteredResturant] = useState([]);
+
+    //search Clicked
+    
 
     //api call
     useEffect(()=>{
-        console.log("use effect render - body component");
+        console.log("USE EFFECT - Body Component");
         getResturants();
     },[])
 
@@ -33,11 +42,21 @@ const BodyComponent = () => {
         //  console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
          const myrestu = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
          console.log(myrestu);
-         setResturant(myrestu);
+         setFilteredResturant(myrestu);
+         setAllResturants(myrestu);
     }
 
-    console.log("Body Componenent");
-    return (
+    console.log("Render - Body Componenent");
+
+    //conditional rendering
+    //if resturant is empty => shimmer Ui
+    //if resturant has data => actual data UI
+
+    //not render component (Early return)
+    // if(allresturants.length === 0) return null;
+
+    return (allresturants?.length === 0) ? <Shimmer/> : 
+    (
         <> 
             {/* search bar */}
             <div className="search-container">
@@ -48,15 +67,16 @@ const BodyComponent = () => {
                  <button className="search-btn" onClick={()=>
                  {
                        //need to filter the data
-                        const data = filterData(searchInput, resturantList);
-                       //update the state- resturant
-                       setResturant(data);
+                        const data = filterData(searchInput, allresturants);
+                       //update the state- filtered resturant
+                       setFilteredResturant(data)
                  }}>Search</button>
             </div>
             
             {/* //resturant list */}
             <div className="resturant-list">
-                {resturant?.map((resturant, index) => {
+                {filteredresturant?.length === 0 ? <h2>No Match Found With : {searchInput}</h2> :
+                    filteredresturant?.map((resturant, index) => {
                     return (
                         <ResturantCardComponent {...resturant.info} key={resturant.info.id}/>
                     );

@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"hcwwj":[function(require,module,exports) {
+})({"2pCtL":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -27211,20 +27211,23 @@ _c = Title;
 const HeaderComponent = ()=>{
     _s();
     const [title, setTitle] = (0, _react.useState)("Food Villa !!");
+    const [isLoggedIn, setIsLoggedIn] = (0, _react.useState)(false);
     console.log("Header Component");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {}, void 0, false, {
                 fileName: "src/components/HeaderComponent.js",
-                lineNumber: 14,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: title
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                className: "bike-logo",
+                alt: "bike",
+                src: "https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png?output-format=webp"
             }, void 0, false, {
                 fileName: "src/components/HeaderComponent.js",
-                lineNumber: 15,
+                lineNumber: 18,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27235,28 +27238,28 @@ const HeaderComponent = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 18,
+                            lineNumber: 21,
                             columnNumber: 23
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 19,
+                            lineNumber: 22,
                             columnNumber: 23
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 20,
+                            lineNumber: 23,
                             columnNumber: 23
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 21,
+                            lineNumber: 24,
                             columnNumber: 23
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -27271,33 +27274,52 @@ const HeaderComponent = ()=>{
                                 children: "Change Title"
                             }, void 0, false, {
                                 fileName: "src/components/HeaderComponent.js",
-                                lineNumber: 22,
+                                lineNumber: 25,
                                 columnNumber: 27
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/HeaderComponent.js",
-                            lineNumber: 22,
+                            lineNumber: 25,
                             columnNumber: 23
+                        }, undefined),
+                        isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: ()=>{
+                                setIsLoggedIn(false);
+                            },
+                            children: "Logout"
+                        }, void 0, false, {
+                            fileName: "src/components/HeaderComponent.js",
+                            lineNumber: 27,
+                            columnNumber: 38
+                        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: ()=>{
+                                setIsLoggedIn(true);
+                            },
+                            children: "Login"
+                        }, void 0, false, {
+                            fileName: "src/components/HeaderComponent.js",
+                            lineNumber: 27,
+                            columnNumber: 101
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/HeaderComponent.js",
-                    lineNumber: 17,
+                    lineNumber: 20,
                     columnNumber: 19
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/HeaderComponent.js",
-                lineNumber: 16,
+                lineNumber: 19,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/HeaderComponent.js",
-        lineNumber: 13,
+        lineNumber: 16,
         columnNumber: 9
     }, undefined);
 };
-_s(HeaderComponent, "RmzQuQcki6t9Ocop7EOdVBrHY1U=");
+_s(HeaderComponent, "bbacOmKFA68PnRIl4h5bYTwYyt8=");
 _c1 = HeaderComponent;
 exports.default = HeaderComponent;
 var _c, _c1;
@@ -27491,22 +27513,27 @@ var _react = require("react");
 var _constants = require("../constants");
 var _resturantCardComponent = require("./ResturantCardComponent");
 var _resturantCardComponentDefault = parcelHelpers.interopDefault(_resturantCardComponent);
+var _shimerComponent = require("./ShimerComponent");
+var _shimerComponentDefault = parcelHelpers.interopDefault(_shimerComponent);
 var _s = $RefreshSig$();
 const BodyComponent = ()=>{
     _s();
     //filter data function
-    function filterData(searchInput, resturantList) {
-        return resturantList.filter((res, inde)=>res.info.name.includes(searchInput));
+    function filterData(searchInput, allresturants) {
+        return allresturants.filter((res, inde)=>res?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase()));
     }
     //search Text it is local variabl
     const [searchInput, setSearchInput] = (0, _react.useState)();
+    //all resturant original
+    const [allresturants, setAllResturants] = (0, _react.useState)([]);
     //using to show data in body
-    const [resturant, setResturant] = (0, _react.useState)();
+    const [resturant, setResturant] = (0, _react.useState)((0, _constants.resturantList));
     //search Clicked
-    const [searchClicked, setSearchClicked] = (0, _react.useState)("false");
+    const [filteredresturant, setFilteredResturant] = (0, _react.useState)([]);
+    //search Clicked
     //api call
     (0, _react.useEffect)(()=>{
-        console.log("use effect render - body component");
+        console.log("USE EFFECT - Body Component");
         getResturants();
     }, []);
     //
@@ -27516,10 +27543,20 @@ const BodyComponent = ()=>{
         //  console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         const myrestu = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         console.log(myrestu);
-        setResturant(myrestu);
+        setFilteredResturant(myrestu);
+        setAllResturants(myrestu);
     }
-    console.log("Body Componenent");
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    console.log("Render - Body Componenent");
+    //conditional rendering
+    //if resturant is empty => shimmer Ui
+    //if resturant has data => actual data UI
+    //not render component (Early return)
+    // if(allresturants.length === 0) return null;
+    return allresturants?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimerComponentDefault.default), {}, void 0, false, {
+        fileName: "src/components/BodyComponent.js",
+        lineNumber: 58,
+        columnNumber: 44
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "search-container",
@@ -27532,38 +27569,47 @@ const BodyComponent = ()=>{
                         onChange: (e)=>setSearchInput(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/BodyComponent.js",
-                        lineNumber: 44,
+                        lineNumber: 63,
                         columnNumber: 18
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn",
                         onClick: ()=>{
                             //need to filter the data
-                            const data = filterData(searchInput, (0, _constants.resturantList));
-                            //update the state- resturant
-                            setResturant(data);
+                            const data = filterData(searchInput, allresturants);
+                            //update the state- filtered resturant
+                            setFilteredResturant(data);
                         },
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/BodyComponent.js",
-                        lineNumber: 48,
+                        lineNumber: 67,
                         columnNumber: 18
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/BodyComponent.js",
-                lineNumber: 43,
+                lineNumber: 62,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "resturant-list",
-                children: resturant?.map((resturant, index)=>{
+                children: filteredresturant?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: [
+                        "No Match Found With : ",
+                        searchInput
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/BodyComponent.js",
+                    lineNumber: 78,
+                    columnNumber: 52
+                }, undefined) : filteredresturant?.map((resturant, index)=>{
                     return /*#__PURE__*/ (0, _react.createElement)((0, _resturantCardComponentDefault.default), {
                         ...resturant.info,
                         key: resturant.info.id,
                         __source: {
                             fileName: "src/components/BodyComponent.js",
-                            lineNumber: 61,
+                            lineNumber: 81,
                             columnNumber: 25
                         },
                         __self: undefined
@@ -27571,13 +27617,13 @@ const BodyComponent = ()=>{
                 })
             }, void 0, false, {
                 fileName: "src/components/BodyComponent.js",
-                lineNumber: 58,
+                lineNumber: 77,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(BodyComponent, "wDhPnwrYoolWH48rA+QWweB88cE=");
+_s(BodyComponent, "uLV5AF0J4rFfz+OYyXAJoa65kkk=");
 _c = BodyComponent;
 exports.default = BodyComponent;
 var _c;
@@ -27588,7 +27634,7 @@ $RefreshReg$(_c, "BodyComponent");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../constants":"3huJa","./ResturantCardComponent":"fvNPy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3huJa":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../constants":"3huJa","./ResturantCardComponent":"fvNPy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ShimerComponent":"lQxtg"}],"3huJa":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "resturantList", ()=>resturantList);
@@ -28782,6 +28828,43 @@ $RefreshReg$(_c, "ResturantCardComponent");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lQxtg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5902 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5902.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Shimmer = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "shimmer-card",
+        children: Array(10).fill(" ").map((e, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-cards",
+                children: " "
+            }, index, false, {
+                fileName: "src/components/ShimerComponent.js",
+                lineNumber: 4,
+                columnNumber: 48
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/ShimerComponent.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
+
+  $parcel$ReactRefreshHelpers$5902.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
 },{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lEl63":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0840 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -28812,6 +28895,6 @@ $RefreshReg$(_c, "FooterComponent");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequire164e")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["2pCtL","1xC6H","2kQhy"], "2kQhy", "parcelRequire164e")
 
 //# sourceMappingURL=index.7271efb6.js.map

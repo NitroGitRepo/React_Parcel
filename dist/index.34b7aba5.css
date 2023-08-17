@@ -27,6 +27,11 @@ body {
   display: flex;
 }
 
+.bike-logo {
+  width: 40px;
+  height: 30px;
+}
+
 .header .nav-items ul {
   border: 2px solid red;
   justify-content: space-between;
@@ -94,6 +99,19 @@ body {
 .light {
   background-color: #fff;
   color: #000 !important;
+}
+
+.shimmer-card {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.shimmer-cards {
+  background-color: gray;
+  border-radius: .5rem;
+  width: 250px;
+  height: 250px;
+  margin: .8rem 1rem;
 }
 
 /*# sourceMappingURL=index.34b7aba5.css.map */

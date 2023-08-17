@@ -8,11 +8,14 @@ export const Title = ()=>(
 //Header Component
 const HeaderComponent = ()=>{
     const [title, setTitle] = useState("Food Villa !!")
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     console.log("Header Component");
     return(
         <div className="header">
             <Title/>
-            <h3>{title}</h3>
+            <img  className ="bike-logo" alt = "bike"src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png?output-format=webp"/>
             <div className="nav-items">
                   <ul>
                       <li>Home</li>
@@ -20,6 +23,9 @@ const HeaderComponent = ()=>{
                       <li>Contact</li>
                       <li>Cart</li>
                       <li><button className="head-button" style={{display:"inline"}} onClick={()=>{setTitle("Changed ")}}>Change Title</button></li>
+                      {
+                        isLoggedIn ? <button onClick={()=>{setIsLoggedIn(false)}}>Logout</button> : <button onClick={()=>{setIsLoggedIn(true)}}>Login</button>
+                      }
                   </ul>
             </div>
         </div>
