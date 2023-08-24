@@ -1,5 +1,5 @@
 const FooterComponent = ()=>{
-    console.log("footer component")
+    console.log("Render - Footer Component");
     return (
         <h4>Footer Component</h4>
     )
